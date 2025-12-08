@@ -61,7 +61,7 @@ const HeroCarousel = () => {
                     >
                         <div className="absolute inset-0 bg-black/60" />
                     </div>
-                    <div className="relative h-full flex items-center justify-center text-center px-4">
+                    <div className="relative h-full flex items-end md:items-center justify-center text-center px-4 pb-20 md:pb-0">
                         <div className="max-w-4xl mx-auto space-y-6">
                             <motion.div
                                 initial={{ y: 20, opacity: 0 }}
