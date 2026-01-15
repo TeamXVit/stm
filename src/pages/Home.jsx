@@ -276,7 +276,7 @@ const ContactSection = () => {
                     >
                         <span className="text-xs font-bold text-orange-500 tracking-widest uppercase mb-3">Visit</span>
                         <h3 className="text-2xl md:text-3xl font-black text-gray-900">
-                            {siteConfig.acronym} Office
+                            {siteConfig.cabin} {siteConfig.acronym} Office
                         </h3>
                         <p className="mt-2 text-sm text-gray-500 font-medium uppercase tracking-wide">
                             {siteConfig.university}
@@ -296,7 +296,7 @@ const ContactSection = () => {
                     >
                         <span className="text-xs font-bold text-pink-500 tracking-widest uppercase mb-3">Social</span>
                         <h3 className="text-2xl md:text-3xl font-black text-gray-900 group-hover:text-pink-600 transition-colors">
-                            @stm_vitap
+                            @semmozhi_tamizh_mandram
                         </h3>
                         <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-pink-500">
                             <ArrowRight size={24} className="-rotate-45" />
@@ -311,8 +311,8 @@ const ContactSection = () => {
 const Home = () => {
     return (
         <div className="min-h-screen">
-            <AboutSection />
             <HeroCarousel />
+            <AboutSection />
             <ContactSection />
         </div>
     );

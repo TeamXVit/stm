@@ -58,15 +58,6 @@ const Team = () => {
                                     <p className="text-red-400 font-medium text-lg drop-shadow-md">
                                         {member.role}
                                     </p>
-
-                                    <div className="flex space-x-4 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                                        <button className="text-white hover:text-red-400 transition-colors">
-                                            <Linkedin size={20} />
-                                        </button>
-                                        <button className="text-white hover:text-red-400 transition-colors">
-                                            <Twitter size={20} />
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         </motion.div>
