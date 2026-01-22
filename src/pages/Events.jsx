@@ -34,7 +34,7 @@ const Events = () => {
                             <div className="relative h-64 overflow-hidden">
                                 <div className="absolute inset-0 bg-gray-200 animate-pulse" /> {/* Loading Placeholder */}
                                 <img
-                                    src={event.images[0]}
+                                    src={event.image}
                                     alt={event.title}
                                     className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                 />
@@ -55,12 +55,6 @@ const Events = () => {
                                 <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
                                     {event.title}
                                 </h3>
-                                {event.images.length > 1 && (
-                                    <div className="flex items-center space-x-1 text-xs text-gray-500 mt-3">
-                                        <ImageIcon size={14} />
-                                        <span>+{event.images.length - 1} more photos</span>
-                                    </div>
-                                )}
                             </div>
                         </motion.a>
                     ))}

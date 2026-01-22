@@ -33,43 +33,15 @@ export const heroEvents = [
     },
     {
         id: 3,
-        title: "Pongal Vizha",
-        date: "Dummy",
-        image: "https://images.unsplash.com/photo-1610996883201-9ffdf222d64f?q=80&w=1920&auto=format&fit=crop",
-        description: "Traditional Pongal celebrations with sweet pongal, sugarcane, and cultural performances."
+        title: "WE SHINE’25",
+        date: "December 12, 2025",
+        image: "we-shine-25.JPG",
+        description: "WE SHINE' 25 - the magic of Christmas with joy, laughter, and togetherness!",
+        link: "https://drive.google.com/drive/folders/1h-vc9a88gh7c0igGCP0g3kxchtibzJvf"
     }
 ];
 
-export const allEvents = [
-    {
-        id: 1,
-        title: "Vasantham '25",
-        date: "March 20, 2025",
-        images: ["https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=800&auto=format&fit=crop"],
-        link: "https://instagram.com/stm_vitap"
-    },
-    {
-        id: 2,
-        title: "Tamil Ilakkiya Mandram",
-        date: "February 15, 2025",
-        images: ["https://images.unsplash.com/photo-1456324504439-367cee84d632?q=80&w=800&auto=format&fit=crop"],
-        link: ""
-    },
-    {
-        id: 3,
-        title: "Pongal Vizha",
-        date: "January 14, 2025",
-        images: ["https://images.unsplash.com/photo-1610996883201-9ffdf222d64f?q=80&w=800&auto=format&fit=crop"],
-        link: ""
-    },
-    {
-        id: 4,
-        title: "Debate Competition",
-        date: "November 10, 2024",
-        images: ["https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop"],
-        link: ""
-    }
-];
+export const allEvents = heroEvents;
 
 export const teamMembers = [
     {

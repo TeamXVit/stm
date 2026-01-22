@@ -40,7 +40,7 @@ const HeroCarousel = () => {
     };
 
     return (
-        <div className="relative h-[600px] w-full overflow-hidden bg-gray-900">
+        <div className="relative h-screen w-full overflow-hidden bg-gray-900">
             <AnimatePresence initial={false} custom={1}>
                 <motion.div
                     key={currentIndex}
@@ -125,7 +125,7 @@ const AboutSection = () => {
     return (
         <section className="relative py-28 overflow-hidden bg-white">
             {/* Creative Background Elements */}
-            <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 pointer-events-none opacity-5">
+            <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 pointer-events-none opacity-5 group">
                 <span className="text-[40rem] font-black font-serif text-gray-900 leading-none select-none">
                     ழ
                 </span>
@@ -212,7 +212,7 @@ const AboutSection = () => {
 
 const ContactSection = () => {
     return (
-        <section className="relative py-20 overflow-hidden bg-white/50">
+        <section className="relative py-20 overflow-hidden bg-white">
             {/* Background Texture - Scaled down */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-5">
                 <span className="text-[20rem] md:text-[30rem] font-black font-serif text-gray-900 leading-none select-none">
@@ -255,10 +255,10 @@ const ContactSection = () => {
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="group flex flex-col items-center text-center cursor-pointer"
+                        className="group flex flex-col items-center text-center cursor-pointer px-2"
                     >
                         <span className="text-xs font-bold text-red-500 tracking-widest uppercase mb-3">Email</span>
-                        <h3 className="text-2xl md:text-3xl font-black text-gray-900 group-hover:text-red-600 transition-colors break-all">
+                        <h3 className="text-sm sm:text-lg md:text-2xl font-black text-gray-900 group-hover:text-red-600 transition-colors break-words w-full">
                             {siteConfig.contact.email}
                         </h3>
                         <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-red-500">
@@ -272,10 +272,10 @@ const ContactSection = () => {
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1, duration: 0.5 }}
-                        className="group flex flex-col items-center text-center cursor-default"
+                        className="group flex flex-col items-center text-center cursor-default px-2"
                     >
                         <span className="text-xs font-bold text-orange-500 tracking-widest uppercase mb-3">Visit</span>
-                        <h3 className="text-2xl md:text-3xl font-black text-gray-900">
+                        <h3 className="text-sm sm:text-lg md:text-2xl font-black text-gray-900">
                             {siteConfig.cabin} {siteConfig.acronym} Office
                         </h3>
                         <p className="mt-2 text-sm text-gray-500 font-medium uppercase tracking-wide">
@@ -292,13 +292,13 @@ const ContactSection = () => {
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2, duration: 0.5 }}
-                        className="group flex flex-col items-center text-center cursor-pointer"
+                        className="group flex flex-col items-center text-center cursor-pointer px-2"
                     >
-                        <span className="text-xs font-bold text-pink-500 tracking-widest uppercase mb-3">Social</span>
-                        <h3 className="text-2xl md:text-3xl font-black text-gray-900 group-hover:text-pink-600 transition-colors">
+                        <span className="text-xs font-bold text-orange-500 tracking-widest uppercase mb-3">Social</span>
+                        <h3 className="text-sm sm:text-lg md:text-2xl font-black text-gray-900 group-hover:text-orange-600 transition-colors break-words w-full">
                             @semmozhi_tamizh_mandram
                         </h3>
-                        <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-pink-500">
+                        <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-orange-500">
                             <ArrowRight size={24} className="-rotate-45" />
                         </div>
                     </motion.a>

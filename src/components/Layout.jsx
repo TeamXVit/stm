@@ -1,12 +1,24 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Mail, MapPin } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../data';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
+
+    const isHome = location.pathname === '/';
+    const isTransparent = isHome && !isScrolled;
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -17,7 +29,12 @@ const Navbar = () => {
     const isActive = (path) => location.pathname === path;
 
     return (
-        <nav className="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <nav
+            className={`fixed w-full z-50 transition-all duration-300 ${isTransparent
+                ? 'bg-transparent py-4'
+                : 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100 py-0'
+                }`}
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
                     <Link to="/" className="flex items-center space-x-2">
@@ -33,7 +50,9 @@ const Navbar = () => {
                                 key={link.name}
                                 to={link.path}
                                 className={`relative px-3 py-2 text-sm font-medium transition-colors ${isActive(link.path)
-                                        ? 'text-red-600'
+                                    ? 'text-red-600'
+                                    : isTransparent
+                                        ? 'text-gray-200 hover:text-white'
                                         : 'text-gray-700 hover:text-red-500'
                                     }`}
                             >
@@ -52,7 +71,8 @@ const Navbar = () => {
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-700 hover:text-red-600 p-2"
+                            className={`p-2 transition-colors ${isTransparent ? 'text-white hover:text-gray-200' : 'text-gray-700 hover:text-red-600'
+                                }`}
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -67,7 +87,7 @@ const Navbar = () => {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
+                        className="md:hidden bg-white border-b border-gray-100 overflow-hidden shadow-xl"
                     >
                         <div className="px-4 pt-2 pb-6 space-y-1">
                             {navLinks.map((link) => (
@@ -76,8 +96,8 @@ const Navbar = () => {
                                     to={link.path}
                                     onClick={() => setIsOpen(false)}
                                     className={`block px-3 py-3 rounded-md text-base font-medium ${isActive(link.path)
-                                            ? 'bg-red-50 text-red-600'
-                                            : 'text-gray-700 hover:bg-gray-50 hover:text-red-500'
+                                        ? 'bg-red-50 text-red-600'
+                                        : 'text-gray-700 hover:bg-gray-50 hover:text-red-500'
                                         }`}
                                 >
                                     {link.name}
@@ -112,11 +132,11 @@ const Footer = () => {
                         <h4 className="text-lg font-semibold text-gray-100">Contact Us</h4>
                         <div className="space-y-3">
                             <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
-                                <Mail size={18} />
-                                <span>{siteConfig.contact.email}</span>
+                                <Mail size={16} className="shrink-0" />
+                                <span className="text-xs sm:text-base break-words">{siteConfig.contact.email}</span>
                             </a>
                             <div className="flex items-start space-x-3 text-gray-400">
-                                <MapPin size={18} className="mt-1" />
+                                <MapPin size={18} className="mt-1 shrink-0" />
                                 <span>{siteConfig.contact.location}</span>
                             </div>
                         </div>
@@ -129,7 +149,7 @@ const Footer = () => {
                             href={siteConfig.contact.instagram}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3 rounded-full hover:shadow-lg hover:shadow-purple-500/25 transition-all transform hover:-translate-y-1"
+                            className="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-red-500 px-6 py-3 rounded-full hover:shadow-lg hover:shadow-orange-500/25 transition-all transform hover:-translate-y-1"
                         >
                             <Instagram size={20} />
                             <span className="font-medium">Instagram</span>
@@ -146,10 +166,14 @@ const Footer = () => {
 };
 
 const Layout = ({ children }) => {
+    const location = useLocation();
+    const isHome = location.pathname === '/';
+
     return (
         <div className="flex flex-col min-h-screen bg-gray-50 font-sans">
             <Navbar />
-            <main className="flex-grow pt-16">
+            {/* If home, remove top padding so content goes behind transparent nav */}
+            <main className={`flex-grow ${isHome ? 'pt-0' : 'pt-16'}`}>
                 {children}
             </main>
             <Footer />
