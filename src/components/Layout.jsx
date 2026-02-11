@@ -131,9 +131,9 @@ const Footer = () => {
                     <div className="space-y-4">
                         <h4 className="text-lg font-semibold text-gray-100">Contact Us</h4>
                         <div className="space-y-3">
-                            <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
+                            <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors min-w-0">
                                 <Mail size={16} className="shrink-0" />
-                                <span className="text-xs sm:text-base break-words">{siteConfig.contact.email}</span>
+                                <span className="text-[3.5vw] sm:text-xs whitespace-nowrap">{siteConfig.contact.email}</span>
                             </a>
                             <div className="flex items-start space-x-3 text-gray-400">
                                 <MapPin size={18} className="mt-1 shrink-0" />

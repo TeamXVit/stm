@@ -2,14 +2,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Loader = ({ onFinish }) => {
     const text = "Semmozhi Tamizh Mandram";
-    const letters = Array.from(text);
+    const words = text.split(" ");
+    let charIndex = 0;
 
     const container = {
         hidden: { opacity: 0 },
-        visible: (i = 1) => ({
+        visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.08, delayChildren: 0.04 * i },
-        }),
+            transition: { duration: 0.1 },
+        },
         exit: {
             opacity: 0,
             y: -20,
@@ -18,15 +19,16 @@ const Loader = ({ onFinish }) => {
     };
 
     const child = {
-        visible: {
+        visible: (i) => ({
             opacity: 1,
             y: 0,
             transition: {
+                delay: i * 0.05,
                 type: "spring",
                 damping: 12,
                 stiffness: 100,
             },
-        },
+        }),
         hidden: {
             opacity: 0,
             y: 20,
@@ -55,15 +57,22 @@ const Loader = ({ onFinish }) => {
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-600 rounded-full blur-[100px]"
                 />
 
-                <motion.div className="flex overflow-hidden text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
-                    {letters.map((letter, index) => (
-                        <motion.span
-                            variants={child}
-                            key={index}
-                            className={letter === " " ? "mr-4" : ""}
-                        >
-                            {letter === " " ? "\u00A0" : letter}
-                        </motion.span>
+                <motion.div className="flex flex-wrap justify-center gap-x-3 md:gap-x-4 max-w-4xl text-center px-4 overflow-hidden text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white">
+                    {words.map((word, wordIndex) => (
+                        <div key={wordIndex} className="flex whitespace-nowrap">
+                            {Array.from(word).map((letter, letterIndex) => {
+                                const index = charIndex++;
+                                return (
+                                    <motion.span
+                                        key={letterIndex}
+                                        variants={child}
+                                        custom={index}
+                                    >
+                                        {letter}
+                                    </motion.span>
+                                );
+                            })}
+                        </div>
                     ))}
                 </motion.div>
 

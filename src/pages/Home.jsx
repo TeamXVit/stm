@@ -255,10 +255,12 @@ const ContactSection = () => {
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="group flex flex-col items-center text-center cursor-pointer px-2"
+                        className="group flex flex-col items-center text-center cursor-pointer px-2 min-w-0"
                     >
                         <span className="text-xs font-bold text-red-500 tracking-widest uppercase mb-3">Email</span>
-                        <h3 className="text-sm sm:text-lg md:text-2xl font-black text-gray-900 group-hover:text-red-600 transition-colors break-words w-full">
+                        <h3
+                            className="text-[3.8vw] sm:text-sm md:text-lg font-bold sm:font-black text-gray-900 group-hover:text-red-600 transition-colors whitespace-nowrap w-full"
+                        >
                             {siteConfig.contact.email}
                         </h3>
                         <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-red-500">
@@ -272,10 +274,10 @@ const ContactSection = () => {
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1, duration: 0.5 }}
-                        className="group flex flex-col items-center text-center cursor-default px-2"
+                        className="group flex flex-col items-center text-center cursor-default px-2 min-w-0"
                     >
                         <span className="text-xs font-bold text-orange-500 tracking-widest uppercase mb-3">Visit</span>
-                        <h3 className="text-sm sm:text-lg md:text-2xl font-black text-gray-900">
+                        <h3 className="text-sm sm:text-base md:text-xl font-black text-gray-900 break-words w-full">
                             {siteConfig.cabin} {siteConfig.acronym} Office
                         </h3>
                         <p className="mt-2 text-sm text-gray-500 font-medium uppercase tracking-wide">
@@ -292,10 +294,12 @@ const ContactSection = () => {
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2, duration: 0.5 }}
-                        className="group flex flex-col items-center text-center cursor-pointer px-2"
+                        className="group flex flex-col items-center text-center cursor-pointer px-2 min-w-0"
                     >
                         <span className="text-xs font-bold text-orange-500 tracking-widest uppercase mb-3">Social</span>
-                        <h3 className="text-sm sm:text-lg md:text-2xl font-black text-gray-900 group-hover:text-orange-600 transition-colors break-words w-full">
+                        <h3
+                            className="text-[4vw] sm:text-sm md:text-lg font-bold sm:font-black text-gray-900 group-hover:text-orange-600 transition-colors whitespace-nowrap w-full"
+                        >
                             @semmozhi_tamizh_mandram
                         </h3>
                         <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-orange-500">
@@ -304,7 +308,7 @@ const ContactSection = () => {
                     </motion.a>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 
