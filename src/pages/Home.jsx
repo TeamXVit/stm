@@ -259,9 +259,14 @@ const ContactSection = () => {
                     >
                         <span className="text-xs font-bold text-red-500 tracking-widest uppercase mb-3">Email</span>
                         <h3
-                            className="text-[3.8vw] sm:text-sm md:text-lg font-bold sm:font-black text-gray-900 group-hover:text-red-600 transition-colors whitespace-nowrap w-full"
+                            className="text-[3.8vw] sm:text-sm md:text-lg font-bold sm:font-black text-gray-900 group-hover:text-red-600 transition-colors w-full truncate"
+                            title={siteConfig.contact.email}
                         >
-                            {siteConfig.contact.email}
+                            {siteConfig.contact.email.split('@')[0]}@
+                            <span className="sr-only">
+                                {siteConfig.contact.email.split('@')[1]}
+                            </span>
+                            <span aria-hidden="true">...</span>
                         </h3>
                         <div className="mt-4 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-red-500">
                             <ArrowRight size={24} className="-rotate-45" />
